@@ -49,7 +49,6 @@ long get_filesize(FILE *file)
         else
         {
             fprintf(stderr, "ERROR getting file size\n");
-
             return -1;
         }
     }
@@ -75,7 +74,7 @@ int main(int argc, char *argv[])
 
     for (i = 1; i < argc; ++i)
     {
-        int j = 0;
+        int j = 1;
         file = open_file_rb(argv[i]);
         if (file != NULL)
         {
@@ -90,9 +89,8 @@ int main(int argc, char *argv[])
                     {
                         process_address(buffer[j], j);
                     }
-                    
                 }
-                else if(ferror(file))
+                else if (ferror(file))
                 {
                     fprintf(stderr, "ERROR: reading file %s into buffer\n", argv[i]);
                 }
