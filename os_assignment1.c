@@ -33,7 +33,7 @@ uint8_t isolate_lsb(uint64_t value)
 
 void process_address(uint64_t value, int add_idx)
 {
-    printf("Address %4d: 0x%016llx -> 0x%014llx :  0x%2llx\n", add_idx, value, shift_8(value), isolate_lsb(value));
+    printf("Address %4d: 0x%016llx -> 0x%014llx : 0x%2llx\n", add_idx, value, shift_8(value), isolate_lsb(value));
 }
 
 long get_filesize(FILE *file)
