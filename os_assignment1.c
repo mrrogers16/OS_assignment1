@@ -74,7 +74,8 @@ int main(int argc, char *argv[])
 
     for (i = 1; i < argc; ++i)
     {
-        int j = 1;
+        int j = 0;
+        int add_idx = 1;
         file = open_file_rb(argv[i]);
         if (file != NULL)
         {
@@ -87,10 +88,12 @@ int main(int argc, char *argv[])
                 {
                     for (j = 0; j < file_read; j++)
                     {
-                        process_address(buffer[j], j);
+                        process_address(buffer[j], add_idx);
+                        ++add_idx;
                     }
+                    
                 }
-                else if (ferror(file))
+                else if(ferror(file))
                 {
                     fprintf(stderr, "ERROR: reading file %s into buffer\n", argv[i]);
                 }
