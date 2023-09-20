@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     struct sockaddr_in server;
     server.sin_addr = inet_addr("104.22.55.228");
     server.sin_family = AF_INET;
-    server.sin_port - htons(80);
+    server.sin_port = htons(80);
 
     WSACleanup();
     return 0;
