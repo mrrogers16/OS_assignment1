@@ -142,7 +142,7 @@ int main(int argc, char *argv[])
      *  Wait for a client to connect and accept the connection. Upon successful connection, store the new socket's file descriptor in 'newsockfd'.
      *  The 'sockfd' is the original listening socket.
      *  'cli_addr' will be filled with the client's address information.
-     *  '&clilen' specifies the length of the client address structure. Test
+     *  '&clilen' specifies the length of the client address structure.
      */
 
     newsockfd = accept(sockfd, (struct sockaddr *)&cli_addr, &clilen);
