@@ -115,7 +115,7 @@ int main(int argc, char *argv[])
     struct sockaddr_in serv_addr; // server struct
     struct sockaddr_in cli_addr;  // client struct
 
-    socklen_t clilen;                         // socklen_t: 32bit data type
+    socklen_t clilen;                         // socklen_t: 32bit data type ---- clilen: the size of the client struct
     sockfd = socket(AF_INET, SOCK_STREAM, 0); // socket file descriptor
 
     if (sockfd < 0)
@@ -142,7 +142,7 @@ int main(int argc, char *argv[])
      *  Wait for a client to connect and accept the connection. Upon successful connection, store the new socket's file descriptor in 'newsockfd'.
      *  The 'sockfd' is the original listening socket.
      *  'cli_addr' will be filled with the client's address information.
-     *  '&clilen' specifies the length of the client address structure.
+     *  '&clilen' specifies the length of the client address structure. Test
      */
 
     newsockfd = accept(sockfd, (struct sockaddr *)&cli_addr, &clilen);
