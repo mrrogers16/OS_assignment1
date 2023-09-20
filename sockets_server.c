@@ -58,7 +58,7 @@
 
 // /*
 //  *	- newsockfd: an integer variable that will hold the file descriptor of the newly accepted socket. After a client connection is accepted, 'newsockfd' can be
-//  *    used to communicate with the client. Will represent the established connection with the client upon successfull execution.
+//  *     used to communicate with the client. Will represent the established connection with the client upon successfull execution.
 //  *	- sockfd: socket that server uses to listen for incoming connections
 //  *	- (struct socksaddr *) &addr: pointer to struct sockaddr....The 'accept' function will fill this structure with the address information of the client that's connecting to the server
 //  */
