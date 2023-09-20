@@ -115,7 +115,7 @@ int main(int argc, char *argv[])
     struct sockaddr_in serv_addr; // server struct
     struct sockaddr_in cli_addr;  // client struct
 
-    socklen_t clilen;                         // socklen_t: 32bit data type
+    socklen_t clilen;                         // socklen_t: 32bit data type ---- clilen: the size of the client struct
     sockfd = socket(AF_INET, SOCK_STREAM, 0); // socket file descriptor
 
     if (sockfd < 0)
