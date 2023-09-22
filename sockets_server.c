@@ -58,7 +58,7 @@
 
 // /*
 //  *	- newsockfd: an integer variable that will hold the file descriptor of the newly accepted socket. After a client connection is accepted, 'newsockfd' can be
-//  *     used to communicate with the client. Will represent the established connection with the client upon successfull execution.
+//  *    used to communicate with the client. Will represent the established connection with the client upon successfull execution.
 //  *	- sockfd: socket that server uses to listen for incoming connections
 //  *	- (struct socksaddr *) &addr: pointer to struct sockaddr....The 'accept' function will fill this structure with the address information of the client that's connecting to the server
 //  */
@@ -130,12 +130,12 @@ int main(int argc, char *argv[])
     serv_addr.sin_addr.s_addr = INADDR_ANY; // Declare this socket will be bound to all available network interfaces.
     serv_addr.sin_port = htons(portno);     // Convert portno from host byte order to network byte order and assign it to serv_addr.sin_port.
 
-    if (bind(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) == 0) // bind expects a pointer to struct sockaddr therefore we will cast the pointer from 'struct sockaddr_in *' to 'struct sockaddr *'.
+    if (bind(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) // bind expects a pointer to struct sockaddr therefore we will cast the pointer from 'struct sockaddr_in *' to 'struct sockaddr *'.
     {
         error("Binding Failed\n");
     }
 
-    listen(sockfd, 5);         // Listen on the socket (sockfd) for incoming connections. Allow up to 5 pending connections in the queue.
+    listen(sockfd, 5);         // Listen on the socket for incoming connections. Allow up to 5 pending connections in the queue.
     clilen = sizeof(cli_addr); // Set 'clilen' to the size of the client address structure, to be used later in 'accept()'.
 
     /*
