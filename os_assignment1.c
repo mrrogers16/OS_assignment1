@@ -66,6 +66,13 @@ int main(int argc, char *argv[])
     FILE *file;
     uint64_t buffer[BUFF_SIZE];
 
+    //take in args
+    //open file
+    //get filesize
+    //get number of unique uint64_t values in file
+    //process buffer
+    //close file
+
     if (argc < 2)
     {
         fprintf(stderr, "ERROR USAGE: file1 file2 ... file n\n", argv[0]);
@@ -83,7 +90,7 @@ int main(int argc, char *argv[])
 
             if (file_size > 0)
             {
-                size_t file_read = fread(&buffer, sizeof(uint64_t), BUFF_SIZE, file);
+                size_t file_read = fread(&buffer, sizeof(uint64_t), BUFF_SIZE, file); //populate buffer and get number of unique uint64 per file
                 if (file_read > 0)
                 {
                     for (j = 0; j < file_read; j++)
@@ -102,7 +109,7 @@ int main(int argc, char *argv[])
         }
         else
         {
-            fprintf(stderr, "ERROR: with open_file_rb");
+            fprintf(stderr, "ERROR: with open_file_rb"); //redundant -- open_file_rb has error checking 
         }
     }
     return 0;
