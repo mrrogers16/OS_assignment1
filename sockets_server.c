@@ -118,6 +118,14 @@ int main(int argc, char *argv[])
     socklen_t clilen;                         // socklen_t: 32bit data type ---- clilen: the size of the client struct
     sockfd = socket(AF_INET, SOCK_STREAM, 0); // socket file descriptor
 
+// /*
+//  * SERVER: Socket() -> Bind() -> listen() -> accept() -> read() -> write() -> close()
+//  *											^	          ^           v        v ^
+//  *											^             ^           v        v ^
+//  * CLIENT: Socket() ->---------------------> connection() -> write() -> read() -> close()
+//  */
+
+
     if (sockfd < 0)
     {
         error("Error opening socket");
