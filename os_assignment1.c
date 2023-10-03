@@ -91,7 +91,12 @@ int main(int argc, char *argv[])
             if (file_size > 0)
             {
                 size_t file_read = fread(&buffer, sizeof(uint64_t), BUFF_SIZE, file); //populate buffer and get number of unique uint64 per file
-                if (file_read > 0)
+                
+                if(file_read == 0 && feof(file))
+                {
+                    fprintf(stderr, "Reached end of file %s: NO DATA", argv[i]);
+                }
+                else if (file_read > 0)
                 {
                     for (j = 0; j < file_read; j++)
                     {
